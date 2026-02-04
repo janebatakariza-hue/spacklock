@@ -1,0 +1,188 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+body {
+  margin: 0px;
+  font-family: "jost", sans-serif;
+  background-color: white;
+}
+.nav-content {
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  justify-content: space-between;
+  gap: 40px;
+  display: Flex;
+  align-items: center;
+  width: auto;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.na-heading {
+  color: #a34d1b;
+  font-family: "jost", sans-serif;
+  font-size: 30px;
+
+  border-radius: 50px;
+  margin: 0;
+  font-weight: bold;
+  background-color: white;
+  white-space: nowrap;
+}
+.navBar {
+  justify-content: space-between;
+  border-radius: 50px;
+  display: Flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+nav a {
+  margin: 20px;
+  color: #a34d1b;
+  font-family: "jost", sans-serif;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.button1 {
+  margin: 10px;
+  width: 100px;
+  height: 52px;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  background-color: #a34d1b;
+}
+.button2 {
+  margin: 10px;
+  width: 100px;
+  height: 52px;
+  background-color: white;
+  color: #a34d1b;
+  border: 1px solid #a34d1b;
+  border-radius: 8px;
+  font-family: "jost", sans-serif;
+}
+.smartone {
+  font-size: xx-large;
+  color: rgb(236, 232, 232);
+  font-weight: bolder;
+  text-align: center;
+  align-items: center;
+  font-family: "jost", sans-serif;
+  align-items: center;
+}
+.getStarted {
+  background: #a34d1b;
+  color: white;
+  font-family: "jost", sans-serif;
+  padding: 16px 40px;
+  margin: 10px;
+  border: none;
+}
+.downloadApp {
+  background-color: white;
+  color: #a34d1b;
+  font-family: "jost", sans-serif;
+
+  padding: 16px 40px;
+  margin: 10px;
+  border: none;
+}
+.herosection::before {
+  content: "";
+  position: absolute;
+  background: rgba(35, 30, 30, 0.5);
+}
+.herosection > * {
+  position: relative;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1;
+}
+.herosection {
+  background-image: url("HomeImage.png");
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+}
+.hero-description {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+header {
+  margin: 0px;
+}
+.design button {
+  width: 120px;
+  height: 50px;
+  border-radius: 40px;
+  background: rgb(229, 182, 182);
+  color: #a34d1b;
+  border: none;
+}
+.design {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+.design img {
+  max-width: 100%;
+  height: auto;
+}
+.our {
+  font-size: 90px;
+  color: black;
+  font-weight: bold;
+}
+.mission {
+  font-size: 90px;
+  color: #a34d1b;
+  font-weight: bold;
+}
+.ourmission p {
+  line-height: 40px;
+  color: #000000;
+  margin: 10px;
+}
+.ourmission {
+  display: flex;
+  gap: 40px;
+}
+.ready {
+  font-size: 80px;
+  font-weight:bold;
+  color: black;
+  text-align: center;
+}
+.touch {
+  align-items: center;
+  background: #a34d1b;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+}
+.touchone {
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+}
