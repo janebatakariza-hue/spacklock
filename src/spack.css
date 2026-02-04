@@ -9,17 +9,16 @@ body {
   background-color: white;
 }
 .nav-content {
-  border: 1px solid;
-  border-radius: 10px;
   background-color: white;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 40px;
   justify-content: space-between;
   gap: 40px;
   display: Flex;
   align-items: center;
-  width: auto;
-  max-width: 2000px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  transition: transform 0.3s ease;
 }
 
 .na-heading {
@@ -27,7 +26,6 @@ body {
   font-family: "jost", sans-serif;
   font-size: 30px;
 
-  border-radius: 50px;
   margin: 0;
   font-weight: bold;
   background-color: white;
@@ -35,7 +33,7 @@ body {
 }
 .navBar {
   justify-content: space-between;
-  border-radius: 50px;
+
   display: Flex;
   gap: 30px;
   flex-wrap: nowrap;
@@ -47,8 +45,12 @@ nav a {
   font-family: "jost", sans-serif;
   text-align: center;
   white-space: nowrap;
+  border-bottom: 2px solid transparent;
 }
-
+nav a:hover {
+  border-bottom: 2px solid #a34d1b;
+  color: #a34d1b;
+}
 .button1 {
   margin: 10px;
   width: 100px;
@@ -56,7 +58,12 @@ nav a {
   color: white;
   border-radius: 8px;
   border: none;
+  outline: none;
   background-color: #a34d1b;
+  transition: transform 0.3s ease;
+}
+.button1:hover {
+  transform: scale(1.1);
 }
 .button2 {
   margin: 10px;
@@ -64,9 +71,16 @@ nav a {
   height: 52px;
   background-color: white;
   color: #a34d1b;
-  border: 1px solid #a34d1b;
+
+  outline: none;
   border-radius: 8px;
   font-family: "jost", sans-serif;
+  transition: transform 0.3s ease;
+  border: 1px solid #a34d1b;
+}
+.button2:hover {
+  transform: scale(1.1);
+  border: 1px solid #a34d1b;
 }
 .smartone {
   font-size: xx-large;
@@ -84,6 +98,10 @@ nav a {
   padding: 16px 40px;
   margin: 10px;
   border: none;
+  transition: transform 0.3s ease;
+}
+.getStarted:hover {
+  transform: scale(1.1);
 }
 .downloadApp {
   background-color: white;
@@ -93,11 +111,19 @@ nav a {
   padding: 16px 40px;
   margin: 10px;
   border: none;
+  transition: transform 0.3s ease;
+}
+.downloadApp:hover {
+  transform: scale(1.1);
 }
 .herosection::before {
   content: "";
   position: absolute;
   background: rgba(35, 30, 30, 0.5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .herosection > * {
   position: relative;
@@ -111,7 +137,7 @@ nav a {
 }
 .herosection {
   background-image: url("HomeImage.png");
-  margin-top: 0px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,6 +147,7 @@ nav a {
   background-size: cover;
   background-position: center;
   padding: 80px 20px;
+  margin: 0;
 }
 .hero-description {
   align-items: center;
@@ -129,6 +156,8 @@ nav a {
 }
 header {
   margin: 0px;
+  position: relative;
+  z-index: 10;
 }
 .design button {
   width: 120px;
@@ -137,6 +166,10 @@ header {
   background: rgb(229, 182, 182);
   color: #a34d1b;
   border: none;
+  transition: transform 0.3s ease;
+}
+.design button:hover {
+  transform: scale(1.1);
 }
 .design {
   display: flex;
@@ -169,7 +202,7 @@ header {
 }
 .ready {
   font-size: 80px;
-  font-weight:bold;
+  font-weight: bold;
   color: black;
   text-align: center;
 }
@@ -180,9 +213,14 @@ header {
   justify-content: center;
   text-align: center;
   border-radius: 20px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+.touch:hover {
+  transform: scale(1.1);
 }
 .touchone {
   align-items: center;
   justify-content: center;
-  text-align:center;
+  text-align: center;
 }
