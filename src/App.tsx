@@ -1,4 +1,4 @@
-import "./App.css";
+import "./spack.css";
 import phone from "./phone.png";
 import designForm from "./Design.png";
 function SpackLock() {
@@ -77,6 +77,9 @@ function SpackLock() {
         <footer>
           <h2 className="footer-brand">SPACKLOCK</h2>
         </footer>
+      </div>
+      <div id="about">
+        <p>this is the about us</p>
       </div>
     </body>
   );
