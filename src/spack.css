@@ -191,14 +191,15 @@ header {
   color: #a34d1b;
   font-weight: bold;
 }
+
 .ourmission p {
   line-height: 40px;
   color: #000000;
-  margin: 10px;
+  margin: 30px;
 }
 .ourmission {
   display: flex;
-  gap: 40px;
+  gap: 200px;
 }
 .ready {
   font-size: 80px;
@@ -224,3 +225,5 @@ header {
   justify-content: center;
   text-align: center;
 }
+
+
