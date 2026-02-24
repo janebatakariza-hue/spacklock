@@ -6,7 +6,7 @@ function SpackLock() {
     <body>
       <div id="home">
         <header>
-          <nav className="nav-content">
+         
             <h1 className="na-heading">SPACKLOCK</h1>
             <div className="nav-links">
               <a href="#home">Home</a>
@@ -19,7 +19,7 @@ function SpackLock() {
               <button className="button1">Sign Up</button>
               <button className="button2">Login</button>
             </div>
-          </nav>
+       
         </header>
 
         <div className="herosection">
