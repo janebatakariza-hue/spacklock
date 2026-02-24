@@ -10,15 +10,14 @@ body {
   overflow-x: hidden;
 }
 .nav-content {
-  background-color: white;
-  padding: 10px 40px;
-  justify-content: space-between;
-  gap: 40px;
-  display: Flex;
+  display: flex;
   align-items: center;
+  gap: 24px;
+  justify-content: flex-start;
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 1200px;
+  padding: 12px 28px;
+  margin: 0 auto;
   transition: transform 0.3s ease;
 }
 
@@ -31,6 +30,19 @@ body {
   font-weight: bold;
   background-color: white;
   white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 .navBar {
   justify-content: space-between;
@@ -152,8 +164,8 @@ nav a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 80px 20px;
-  margin: 0;
+  padding: 140px 20px 80px 20px;
+  /* keep full-bleed offset, no additional margin to avoid doubling */
 }
 .hero-description {
   align-items: center;
@@ -162,8 +174,17 @@ nav a:hover {
 }
 header {
   margin: 0px;
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  z-index: 60;
+  width: calc(100% - 64px);
+  max-width: 1200px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+  padding: 6px 12px;
 }
 .design button {
   width: 120px;
