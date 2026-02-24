@@ -8,13 +8,15 @@ function SpackLock() {
         <header>
           <nav className="nav-content">
             <h1 className="na-heading">SPACKLOCK</h1>
-            <div className="navBar">
+            <div className="nav-links">
               <a href="#home">Home</a>
-              <a href="#about">AboutUs</a>
+              <a href="#about">About Us</a>
               <a href="#features">Features</a>
               <a href="#reviews">Reviews</a>
-              <a href="#contacts">Contacts</a>
-              <button className="button1">SignUp</button>
+              <a href="#contacts">Contact Us</a>
+            </div>
+            <div className="nav-actions">
+              <button className="button1">Sign Up</button>
               <button className="button2">Login</button>
             </div>
           </nav>
