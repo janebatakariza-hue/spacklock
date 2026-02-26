@@ -5,8 +5,8 @@ function SpackLock() {
   return (
     <body>
       <div id="home">
-        <header>
-         
+        <div className="hero-wrapper" style={{ position: "relative" }}>
+          <header>
             <h1 className="na-heading">SPACKLOCK</h1>
             <div className="nav-links">
               <a href="#home">Home</a>
@@ -19,27 +19,27 @@ function SpackLock() {
               <button className="button1">Sign Up</button>
               <button className="button2">Login</button>
             </div>
-       
-        </header>
+          </header>
 
-        <div className="herosection">
-          <h1 className="smartone">
-            Smart Fire detection <br />
-            and prevention system
-          </h1>
-          <br />
-          <p className="hero-description">
-            Spack Lock is an intelligent fire monitoring system that detects{" "}
+          <div className="herosection">
+            <h1 className="smartone">
+              Smart Fire detection <br />
+              and prevention system
+            </h1>
             <br />
-            early signs of fire—heat, smoke, and gas—in real time.
-            <br /> Using AI to analyze sensor and circuit data, it alerts the
-            owner instantly
-            <br />
-            and can notify the fire brigade if a fire breaks out.
-          </p>
-          <div className="hero-buttons">
-            <button className="getStarted">Get Started</button>
-            <button className="downloadApp">Download App</button>
+            <p className="hero-description">
+              Spack Lock is an intelligent fire monitoring system that detects{" "}
+              <br />
+              early signs of fire—heat, smoke, and gas—in real time.
+              <br /> Using AI to analyze sensor and circuit data, it alerts the
+              owner instantly
+              <br />
+              and can notify the fire brigade if a fire breaks out.
+            </p>
+            <div className="hero-buttons">
+              <button className="getStarted">Get Started</button>
+              <button className="downloadApp">Download App</button>
+            </div>
           </div>
         </div>
         <div className="design">
