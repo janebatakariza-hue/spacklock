@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-function Login({ onBack }: { onBack: () => void }) {
+function Login({
+  onBack,
+  onGoToSignup,
+}: {
+  onBack: () => void;
+  onGoToSignup: () => void;
+}) {
   const [form, setForm] = useState({ phone: "", password: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [success, setSuccess] = useState(false);
@@ -136,21 +142,35 @@ function Login({ onBack }: { onBack: () => void }) {
 
               <p style={styles.signupText}>
                 Don't have an account?{" "}
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onBack();
+                <button
+                  onClick={onGoToSignup}
+                  style={{
+                    color: "#8B3A0F",
+                    fontWeight: "600",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "13px",
                   }}
-                  style={{ color: "#8B3A0F", fontWeight: "600" }}
                 >
                   Sign Up
-                </a>
+                </button>
               </p>
-
-              <button type="button" onClick={onBack} style={styles.backBtn}>
-                ← Back to home
-              </button>
+              <p style={styles.signupText}>
+                <button
+                  onClick={onBack}
+                  style={{
+                    color: "#555",
+                    fontWeight: "600",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "13px",
+                  }}
+                >
+                  ← Back to Home
+                </button>
+              </p>
             </form>
           )}
         </div>

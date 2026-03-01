@@ -1,8 +1,15 @@
 import { useState } from "react";
 
-function Signup({ onBack }: { onBack: () => void }) {
+function Signup({
+  onBack,
+  onGoToLogin,
+}: {
+  onBack: () => void;
+  onGoToLogin: () => void;
+}) {
   const [form, setForm] = useState({
     fullName: "",
+
     phone: "",
     password: "",
     confirmPassword: "",
@@ -171,12 +178,34 @@ function Signup({ onBack }: { onBack: () => void }) {
 
               <p style={styles.loginText}>
                 Already have an account?{" "}
-                <a
-                  href="#login"
-                  style={{ color: "#8B3A0F", fontWeight: "600" }}
+                <button
+                  onClick={onGoToLogin}
+                  style={{
+                    color: "#8B3A0F",
+                    fontWeight: "600",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "13px",
+                  }}
                 >
                   Login
-                </a>
+                </button>
+              </p>
+              <p style={styles.loginText}>
+                <button
+                  onClick={onBack}
+                  style={{
+                    color: "#555",
+                    fontWeight: "600",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "13px",
+                  }}
+                >
+                  ← Back to Home
+                </button>
               </p>
             </form>
           )}
