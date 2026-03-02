@@ -4,6 +4,7 @@ import Signup from "./signup";
 import Login from "./login";
 import AboutUs from "./aboutus";
 import Contact from "./Contact";
+import { Flame, Bot, Bell, Truck, Zap, Shield } from "lucide-react";
 
 function LandingPage() {
   const [page, setPage] = useState<
@@ -84,7 +85,8 @@ function LandingPage() {
 
         <div className="herosection">
           <h1 className="smartone">
-            Smart Pollution Detection <br/>for a Cleaner Future
+            Smart Pollution Detection <br />
+            for a Cleaner Future
           </h1>
           <br />
           <p className="hero-description">
@@ -217,32 +219,32 @@ function LandingPage() {
         >
           {[
             {
-              icon: "🔥",
+              icon: <Flame size={36} color="#a34d1b" />,
               title: "Real-Time Monitoring",
               desc: "Continuously tracks heat, smoke, and gas levels 24/7 so no danger goes undetected.",
             },
             {
-              icon: "🤖",
+              icon: <Bot size={36} color="#a34d1b" />,
               title: "AI-Powered Detection",
               desc: "Advanced AI analyzes sensor data to distinguish false alarms from real threats.",
             },
             {
-              icon: "📱",
+              icon: <Bell size={36} color="#a34d1b" />,
               title: "Instant Alerts",
               desc: "Get notified on your phone the moment danger is detected, wherever you are.",
             },
             {
-              icon: "🚒",
+              icon: <Truck size={36} color="#a34d1b" />,
               title: "Fire Brigade Notify",
               desc: "Automatically contacts the nearest fire brigade when a fire is confirmed.",
             },
             {
-              icon: "⚡",
+              icon: <Zap size={36} color="#a34d1b" />,
               title: "Fast Response",
               desc: "From detection to alert in under 3 seconds — speed that saves lives.",
             },
             {
-              icon: "🛡️",
+              icon: <Shield size={36} color="#a34d1b" />,
               title: "Full Protection",
               desc: "Covers every corner of your home or building with our sensor network.",
             },
@@ -264,9 +266,7 @@ function LandingPage() {
                 (e.currentTarget.style.transform = "translateY(0)")
               }
             >
-              <div style={{ fontSize: "36px", marginBottom: "16px" }}>
-                {f.icon}
-              </div>
+              <div style={{ marginBottom: "16px" }}>{f.icon}</div>
               <h3
                 style={{
                   fontSize: "18px",
@@ -952,7 +952,7 @@ function LandingPage() {
           }}
         >
           <span>
-            © 2025 Copyright, All Rights Reserved, Made By{" "}
+            © 2026 Copyright, All Rights Reserved, Made By{" "}
             <strong>INNOVEX</strong> Team
           </span>
           <a

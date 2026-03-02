@@ -370,7 +370,7 @@ function AboutUs({
           }}
         >
           <span>
-            © 2025 Copyright, All Rights Reserved, Made By{" "}
+            © 2026 Copyright, All Rights Reserved, Made By{" "}
             <strong>INNOVEX</strong> Team
           </span>
           <a
