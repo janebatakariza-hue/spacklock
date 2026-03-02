@@ -84,7 +84,7 @@ function LandingPage() {
 
         <div className="herosection">
           <h1 className="smartone">
-            Smart Pollution Detection <br></br>for a Cleaner Future
+            Smart Pollution Detection <br/>for a Cleaner Future
           </h1>
           <br />
           <p className="hero-description">
