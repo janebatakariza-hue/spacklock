@@ -4,7 +4,17 @@ import Signup from "./signup";
 import Login from "./login";
 import AboutUs from "./aboutus";
 import Contact from "./Contact";
-import { Flame, Bot, Bell, Truck, Zap, Shield } from "lucide-react";
+
+import {
+  Flame,
+  Bot,
+  Bell,
+  Truck,
+  Zap,
+  Shield,
+  ArrowRight,
+  Download,
+} from "lucide-react";
 
 function LandingPage() {
   const [page, setPage] = useState<
@@ -50,36 +60,38 @@ function LandingPage() {
       <div className="hero-wrapper" style={{ position: "relative" }}>
         <header className="navBar">
           <h1 className="na-heading">SPACKLOCK</h1>
-          <div className="nav-links">
-            <a href="#home">Home</a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setPage("about");
-              }}
-            >
-              About Us
-            </a>
-            {/* <a href="#features">Features</a>
-              <a href="#reviews">Reviews</a> */}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setPage("Contact");
-              }}
-            >
-              Contact Us
-            </a>
-          </div>
-          <div className="nav-actions">
-            <button className="button1" onClick={() => setPage("signup")}>
-              Sign Up
-            </button>
-            <button className="button2" onClick={() => setPage("login")}>
-              Login
-            </button>
+          <div className="nav-pill">
+            <div className="nav-links">
+              <a href="#home">Home</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage("about");
+                }}
+              >
+                About Us
+              </a>
+              <a href="#features">Features</a>
+              <a href="#reviews">Reviews</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage("Contact");
+                }}
+              >
+                Contact Us
+              </a>
+            </div>
+            <div className="nav-actions">
+              <button className="button1" onClick={() => setPage("signup")}>
+                Sign Up
+              </button>
+              <button className="button2" onClick={() => setPage("login")}>
+                Login
+              </button>
+            </div>
           </div>
         </header>
 
@@ -101,9 +113,11 @@ function LandingPage() {
           </p>
           <div className="hero-buttons">
             <button className="getStarted" onClick={() => setPage("signup")}>
-              Get Started
+              Get Started <ArrowRight size={18} />
             </button>
-            <button className="downloadApp">Download App</button>
+            <button className="downloadApp">
+              <Download size={18} /> Download App
+            </button>
           </div>
 
           {/* Stats bar */}
