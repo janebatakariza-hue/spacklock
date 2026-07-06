@@ -4,7 +4,6 @@ import Signup from "./signup";
 import Login from "./login";
 import AboutUs from "./aboutus";
 import Contact from "./Contact";
-
 import {
   Flame,
   Bot,
@@ -14,6 +13,9 @@ import {
   Shield,
   ArrowRight,
   Download,
+  Star,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 function LandingPage() {
@@ -21,6 +23,33 @@ function LandingPage() {
     "home" | "signup" | "login" | "about" | "Contact"
   >("home");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeFeature, setActiveFeature] = useState(0);
+  const featureItems = [
+    {
+      num: 1,
+      title: "Realtime",
+      subtitle: "Monitoring",
+      desc: "Continuously tracks heat, smoke, and gas levels 24/7 so no danger goes undetected, giving you full visibility into your space at all times.",
+    },
+    {
+      num: 2,
+      title: "Instants",
+      subtitle: "Monitoring",
+      desc: "Get notified on your phone the instant unusual activity is detected, wherever you are, so you can respond right away.",
+    },
+    {
+      num: 3,
+      title: "Alarms",
+      subtitle: "Daily Warning",
+      desc: "Receive daily summaries and warning alerts so you always know the current status of every sensor in your network.",
+    },
+    {
+      num: 4,
+      title: "Alerts",
+      subtitle: "Monitoring",
+      desc: "Automatically contacts the nearest fire brigade and your emergency contacts the moment a real threat is confirmed.",
+    },
+  ];
   if (page === "signup")
     return (
       <Signup
@@ -119,74 +148,67 @@ function LandingPage() {
               <Download size={18} /> Download App
             </button>
           </div>
+        </div>
 
-          {/* Stats bar */}
-          <div
-            style={{
-              display: "flex",
-              gap: "40px",
-              marginTop: "40px",
-              background: "rgba(255,255,255,0.12)",
-              backdropFilter: "blur(8px)",
-              borderRadius: "14px",
-              padding: "18px 36px",
-              border: "1px solid rgba(255,255,255,0.2)",
-            }}
-          >
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  color: "white",
-                  fontSize: "26px",
-                  fontWeight: "800",
-                }}
-              >
-                500+
-              </div>
-              <div
-                style={{ color: "rgba(255,255,255,0.75)", fontSize: "13px" }}
-              >
-                Homes Protected
-              </div>
-            </div>
+        {/* Floating stats card — overlaps hero + features */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-56px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 2,
+            display: "flex",
+            gap: "40px",
+            background: "white",
+            borderRadius: "20px",
+            padding: "26px 48px",
+            boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
+            width: "min(90%, 700px)",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
             <div
-              style={{ width: "1px", background: "rgba(255,255,255,0.3)" }}
-            />
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  color: "white",
-                  fontSize: "26px",
-                  fontWeight: "800",
-                }}
-              >
-                304+
-              </div>
-              <div
-                style={{ color: "rgba(255,255,255,0.75)", fontSize: "13px" }}
-              >
-                Fires Prevented
-              </div>
+              style={{
+                color: "#a34d1b",
+                fontSize: "26px",
+                fontWeight: "800",
+              }}
+            >
+              500+
             </div>
+            <div style={{ color: "#555", fontSize: "13px" }}>
+              Homes Protected
+            </div>
+          </div>
+          <div style={{ width: "1px", background: "#eee" }} />
+          <div style={{ textAlign: "center" }}>
             <div
-              style={{ width: "1px", background: "rgba(255,255,255,0.3)" }}
-            />
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  color: "white",
-                  fontSize: "26px",
-                  fontWeight: "800",
-                }}
-              >
-                Instant
-              </div>
-              <div
-                style={{ color: "rgba(255,255,255,0.75)", fontSize: "13px" }}
-              >
-                Alert System
-              </div>
+              style={{
+                color: "#a34d1b",
+                fontSize: "26px",
+                fontWeight: "800",
+              }}
+            >
+              304+
             </div>
+            <div style={{ color: "#555", fontSize: "13px" }}>
+              Fires Prevented
+            </div>
+          </div>
+          <div style={{ width: "1px", background: "#eee" }} />
+          <div style={{ textAlign: "center" }}>
+            <div
+              style={{
+                color: "#1a1a1a",
+                fontSize: "26px",
+                fontWeight: "800",
+              }}
+            >
+              Instant
+            </div>
+            <div style={{ color: "#555", fontSize: "13px" }}>Alert System</div>
           </div>
         </div>
       </div>
@@ -195,107 +217,209 @@ function LandingPage() {
       <div
         id="features"
         style={{
-          padding: "120px 60px 80px",
+          padding: "120px 60px 140px",
           background: "white",
-          textAlign: "center",
         }}
       >
-        <p
-          style={{
-            color: "#a34d1b",
-            fontWeight: "700",
-            letterSpacing: "2px",
-            fontSize: "13px",
-            marginBottom: "12px",
-          }}
-        >
-          ✦ Features
-        </p>
-        <h2
-          style={{
-            fontSize: "38px",
-            fontWeight: "800",
-            color: "#1a1a1a",
-            marginBottom: "60px",
-          }}
-        >
-          What Makes <span style={{ color: "#a34d1b" }}>Spacklock</span>{" "}
-          Different
-        </h2>
+        <div style={{ textAlign: "center", marginBottom: "70px" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              border: "1px solid #f0d9c8",
+              borderRadius: "40px",
+              padding: "10px 24px",
+            }}
+          >
+            <span
+              style={{
+                width: "24px",
+                height: "24px",
+                borderRadius: "50%",
+                border: "1.5px solid #a34d1b",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Star size={12} color="#a34d1b" />
+            </span>
+            <span
+              style={{ color: "#a34d1b", fontWeight: "700", fontSize: "15px" }}
+            >
+              Features
+            </span>
+          </div>
+        </div>
+
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "32px",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "60px",
             maxWidth: "1100px",
             margin: "0 auto",
+            alignItems: "start",
           }}
         >
-          {[
-            {
-              icon: <Flame size={36} color="#a34d1b" />,
-              title: "Real-Time Monitoring",
-              desc: "Continuously tracks heat, smoke, and gas levels 24/7 so no danger goes undetected.",
-            },
-            {
-              icon: <Bot size={36} color="#a34d1b" />,
-              title: "AI-Powered Detection",
-              desc: "Advanced AI analyzes sensor data to distinguish false alarms from real threats.",
-            },
-            {
-              icon: <Bell size={36} color="#a34d1b" />,
-              title: "Instant Alerts",
-              desc: "Get notified on your phone the moment danger is detected, wherever you are.",
-            },
-            {
-              icon: <Truck size={36} color="#a34d1b" />,
-              title: "Fire Brigade Notify",
-              desc: "Automatically contacts the nearest fire brigade when a fire is confirmed.",
-            },
-            {
-              icon: <Zap size={36} color="#a34d1b" />,
-              title: "Fast Response",
-              desc: "From detection to alert in under 3 seconds — speed that saves lives.",
-            },
-            {
-              icon: <Shield size={36} color="#a34d1b" />,
-              title: "Full Protection",
-              desc: "Covers every corner of your home or building with our sensor network.",
-            },
-          ].map((f) => (
-            <div
-              key={f.title}
+          {/* Left: heading + active feature card */}
+          <div>
+            <h2
               style={{
-                background: "#fdf7f4",
-                borderRadius: "16px",
-                padding: "32px 24px",
-                textAlign: "left",
-                border: "1px solid #f0e0d6",
-                transition: "transform 0.2s",
+                fontSize: "56px",
+                fontWeight: "900",
+                color: "#1a1a1a",
+                marginBottom: "40px",
               }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.transform = "translateY(-4px)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.transform = "translateY(0)")
-              }
             >
-              <div style={{ marginBottom: "16px" }}>{f.icon}</div>
+              Features
+            </h2>
+            <div
+              style={{
+                background: "white",
+                border: "1px solid #eee",
+                borderRadius: "16px",
+                padding: "32px",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
+                minHeight: "220px",
+              }}
+            >
               <h3
                 style={{
-                  fontSize: "18px",
-                  fontWeight: "700",
-                  color: "#1a1a1a",
-                  marginBottom: "10px",
+                  color: "#a34d1b",
+                  fontSize: "22px",
+                  fontWeight: "800",
+                  marginBottom: "16px",
                 }}
               >
-                {f.title}
+                {featureItems[activeFeature].title}{" "}
+                {featureItems[activeFeature].subtitle}
               </h3>
-              <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.7" }}>
-                {f.desc}
+              <p style={{ color: "#555", fontSize: "14px", lineHeight: "1.8" }}>
+                {featureItems[activeFeature].desc}
               </p>
             </div>
-          ))}
+            <div style={{ display: "flex", gap: "12px", marginTop: "24px" }}>
+              <button
+                onClick={() => setActiveFeature((activeFeature + 3) % 4)}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  border: "1.5px solid #a34d1b",
+                  background: "white",
+                  color: "#a34d1b",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => setActiveFeature((activeFeature + 1) % 4)}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  border: "1.5px solid #a34d1b",
+                  background: "white",
+                  color: "#a34d1b",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* Right: 2x2 staggered numbered cards with cross accent */}
+          <div style={{ position: "relative", height: "520px" }}>
+            <div
+              style={{
+                position: "absolute",
+                top: "190px",
+                left: "210px",
+                width: "150px",
+                height: "40px",
+                background: "#a34d1b",
+                borderRadius: "12px",
+                zIndex: 0,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "165px",
+                left: "255px",
+                width: "40px",
+                height: "150px",
+                background: "#a34d1b",
+                borderRadius: "12px",
+                zIndex: 0,
+              }}
+            />
+            {featureItems.map((item, i) => {
+              const positions = [
+                { top: "0px", left: "0px" },
+                { top: "220px", left: "0px" },
+                { top: "-10px", left: "260px" },
+                { top: "210px", left: "260px" },
+              ];
+              return (
+                <div
+                  key={item.num}
+                  style={{
+                    position: "absolute",
+                    top: positions[i].top,
+                    left: positions[i].left,
+                    width: "230px",
+                    background: "white",
+                    borderRadius: "16px",
+                    padding: "24px",
+                    boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
+                    zIndex: 1,
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "#a34d1b",
+                      color: "white",
+                      fontWeight: "700",
+                      fontSize: "14px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: "16px",
+                    }}
+                  >
+                    {item.num}
+                  </div>
+                  <h4
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "800",
+                      color: "#1a1a1a",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p style={{ color: "#a34d1b", fontSize: "14px" }}>
+                    {item.subtitle}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
