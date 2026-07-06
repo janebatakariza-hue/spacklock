@@ -46,36 +46,6 @@ function Signup({
   return (
     <div style={styles.page}>
       {/* Decorative background circles */}
-      <div
-        style={{
-          ...styles.bgCircle,
-          width: 420,
-          height: 420,
-          top: -80,
-          left: -120,
-          background: "rgba(160,90,50,0.25)",
-        }}
-      />
-      <div
-        style={{
-          ...styles.bgCircle,
-          width: 300,
-          height: 300,
-          bottom: -60,
-          left: 60,
-          background: "rgba(160,90,50,0.18)",
-        }}
-      />
-      <div
-        style={{
-          ...styles.bgCircle,
-          width: 200,
-          height: 200,
-          bottom: 40,
-          right: -40,
-          background: "rgba(139,58,15,0.3)",
-        }}
-      />
 
       {/* Card */}
       <div style={styles.card}>
@@ -256,23 +226,40 @@ function Signup({
     </div>
   );
 }
+const RING_PALETTE = ["#8B3A0F", "#C98459", "#E9CBB0"];
+const RING_COUNT = 9; // total number of bands — raise this for more rings
+const RING_WIDTH = 40; // px thickness of each band
+
+function buildRings(center: string) {
+  const stops: string[] = [];
+  for (let i = 0; i < RING_COUNT; i++) {
+    const color = RING_PALETTE[i % RING_PALETTE.length];
+    const start = i * RING_WIDTH;
+    const end = (i + 1) * RING_WIDTH;
+    stops.push(`${color} ${start}px, ${color} ${end}px`);
+  }
+  const fadeStart = RING_COUNT * RING_WIDTH;
+  return `radial-gradient(circle at ${center}, ${stops.join(
+    ", ",
+  )}, transparent ${fadeStart}px, transparent 100%)`;
+}
+
+const cornerPattern = `${buildRings("105% 100%")}, ${buildRings(
+  "-5% 0%",
+)}, #ECE7E4`;
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: "100vh",
-    background: "#e8e0db",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "'Georgia', serif",
     position: "relative",
     overflow: "hidden",
+    background: cornerPattern,
   },
-  bgCircle: {
-    position: "absolute",
-    borderRadius: "50%",
-    pointerEvents: "none",
-  },
+
   card: {
     display: "flex",
     borderRadius: "24px",

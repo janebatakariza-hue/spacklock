@@ -35,37 +35,33 @@ function Login({
 
   return (
     <div style={styles.page}>
-      {/* Background decorative circles */}
-      <div
-        style={{
-          ...styles.bgCircle,
-          width: 420,
-          height: 420,
-          top: -80,
-          left: -120,
-          background: "rgba(160,90,50,0.25)",
-        }}
-      />
-      <div
-        style={{
-          ...styles.bgCircle,
-          width: 300,
-          height: 300,
-          bottom: -60,
-          left: 60,
-          background: "rgba(160,90,50,0.18)",
-        }}
-      />
-      <div
-        style={{
-          ...styles.bgCircle,
-          width: 200,
-          height: 200,
-          bottom: 40,
-          right: -40,
-          background: "rgba(139,58,15,0.3)",
-        }}
-      />
+      {/* Decorative background pattern */}
+      {/* <div style={styles.patternWrap}>
+        <div
+          style={{
+            ...styles.ring,
+            width: 900,
+            height: 900,
+            background: "#8B3A0F",
+          }}
+        />
+        <div
+          style={{
+            ...styles.ring,
+            width: 650,
+            height: 650,
+            background: "#C98B5E",
+          }}
+        />
+        <div
+          style={{
+            ...styles.ring,
+            width: 420,
+            height: 420,
+            background: "#E8D2BE",
+          }}
+        />
+      </div> */}
 
       {/* Card */}
       <div style={styles.card}>
@@ -213,11 +209,48 @@ function Login({
     </div>
   );
 }
+const RING_PALETTE = ["#8B3A0F", "#C98459", "#E9CBB0"];
+const RING_COUNT = 9; // total number of bands — raise this for more rings
+const RING_WIDTH = 40; // px thickness of each band
 
+function buildRings(center: string) {
+  const stops: string[] = [];
+  for (let i = 0; i < RING_COUNT; i++) {
+    const color = RING_PALETTE[i % RING_PALETTE.length];
+    const start = i * RING_WIDTH;
+    const end = (i + 1) * RING_WIDTH;
+    stops.push(`${color} ${start}px, ${color} ${end}px`);
+  }
+  const fadeStart = RING_COUNT * RING_WIDTH;
+  return `radial-gradient(circle at ${center}, ${stops.join(
+    ", ",
+  )}, transparent ${fadeStart}px, transparent 100%)`;
+}
+
+const cornerPattern = `${buildRings("105% 100%")}, ${buildRings(
+  "-5% 0%",
+)}, #ECE7E4`;
 const styles: Record<string, React.CSSProperties> = {
+  // AFTER
   page: {
     minHeight: "100vh",
-    background: "#e8e0db",
+    // AFTER
+    background: cornerPattern,
+    //   background: `radial-gradient(
+    //   circle at 105% 100%,
+    //   #8B3A0F 0px,       #8B3A0F 380px,
+    //   #C98459 40px,      #C98459 440px,
+    //   #E9CBB0 75px,      #E9CBB0 500px,
+    //   transparent 110px, transparent 100%
+    // ),
+    // radial-gradient(
+    //   circle at -5% 0%,
+    //   #8B3A0F 0px,       #8B3A0F 200px,
+    //   #C98459 100px,      #C98459 255px,
+    //   #E9CBB0 75px,      #E9CBB0 300px,
+    //   transparent 110px, transparent 100%
+    // ),
+    // #ECE7E4`,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -225,10 +258,20 @@ const styles: Record<string, React.CSSProperties> = {
     position: "relative",
     overflow: "hidden",
   },
-  bgCircle: {
+  patternWrap: {
+    position: "absolute",
+    top: "50%",
+    left: 0,
+    transform: "translate(-55%,-50%)",
+    zIndex: 0,
+    pointerEvents: "none",
+  },
+  ring: {
     position: "absolute",
     borderRadius: "50%",
-    pointerEvents: "none",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
   },
   card: {
     display: "flex",

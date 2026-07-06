@@ -181,7 +181,7 @@ function LandingPage() {
       <div
         id="features"
         style={{
-          padding: "80px 60px",
+          padding: "120px 60px 80px",
           background: "white",
           textAlign: "center",
         }}
