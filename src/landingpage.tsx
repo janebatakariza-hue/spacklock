@@ -17,6 +17,7 @@ import {
   ChevronLeft,
   ChevronRight,
   PlayCircle,
+  Quote,
 } from "lucide-react";
 
 function LandingPage() {
@@ -162,19 +163,22 @@ function LandingPage() {
             display: "flex",
             gap: "40px",
             background: "white",
-            borderRadius: "20px",
+            borderRadius: "24px 24px 6px 6px",
             padding: "26px 48px",
             boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
             width: "min(90%, 700px)",
             justifyContent: "center",
           }}
         >
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center",
+            borderRadius: "24px 24px 6px 6px",
+           }}>
             <div
               style={{
                 color: "#a34d1b",
                 fontSize: "26px",
                 fontWeight: "800",
+                
               }}
             >
               500+
@@ -682,37 +686,59 @@ function LandingPage() {
       <div
         id="reviews"
         style={{
-          padding: "80px 60px",
+          padding: "80px 60px 100px",
           background: "#fdf7f4",
           textAlign: "center",
         }}
       >
-        <p
+        <div
           style={{
-            color: "#a34d1b",
-            fontWeight: "700",
-            letterSpacing: "2px",
-            fontSize: "13px",
-            marginBottom: "12px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "10px",
+            border: "1px solid #f0d9c8",
+            borderRadius: "40px",
+            padding: "10px 24px",
+            marginBottom: "40px",
+            background: "white",
           }}
         >
-          ✦ Reviews
-        </p>
+          <span
+            style={{
+              width: "24px",
+              height: "24px",
+              borderRadius: "50%",
+              border: "1.5px solid #a34d1b",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Star size={12} color="#a34d1b" />
+          </span>
+          <span
+            style={{ color: "#a34d1b", fontWeight: "700", fontSize: "15px" }}
+          >
+            Reviews
+          </span>
+        </div>
         <h2
           style={{
             fontSize: "38px",
             fontWeight: "800",
             color: "#1a1a1a",
-            marginBottom: "60px",
+            marginBottom: "70px",
           }}
         >
-          Client <span style={{ color: "#a34d1b" }}>Success</span> Stories
+          Client <span style={{ color: "#d4711f" }}>Success</span>{" "}
+          <span style={{ color: "#6b3410" }}>Stories</span>
         </h2>
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "28px",
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            gap: "0px",
             maxWidth: "1100px",
             margin: "0 auto",
           }}
@@ -721,77 +747,163 @@ function LandingPage() {
             {
               name: "Jean Pierre",
               role: "Homeowner, Kigali",
+              title: "Home Protection",
               review:
                 "Spacklock alerted me within seconds when my kitchen started overheating. It literally saved my home. I recommend it to every family.",
+              marginTop: "40px",
+              zIndex: 1,
             },
             {
               name: "Amina Uwase",
               role: "Factory Manager, Musanze",
+              title: "Industrial Partner",
               review:
                 "We installed Spacklock across our entire facility. The AI detection has been flawless — no false alarms, just accurate real-time monitoring.",
+              marginTop: "0px",
+              zIndex: 3,
             },
             {
               name: "Eric Nshuti",
               role: "School Principal, Huye",
+              title: "Community Program",
               review:
                 "Having Spacklock in our school gives us peace of mind. The instant alerts mean we can always act before anything escalates.",
+              marginTop: "20px",
+              zIndex: 2,
             },
-          ].map((r) => (
+          ].map((r, i) => (
             <div
               key={r.name}
               style={{
-                background: "white",
-                borderRadius: "16px",
-                padding: "32px 24px",
-                textAlign: "left",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
+                position: "relative",
+                marginLeft: i === 0 ? "0" : "-24px",
+                marginTop: r.marginTop,
+                zIndex: r.zIndex,
               }}
             >
-              <p
-                style={{
-                  fontSize: "14px",
-                  color: "#555",
-                  lineHeight: "1.8",
-                  marginBottom: "24px",
-                }}
-              >
-                "{r.review}"
-              </p>
+              {i < 2 && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "40%",
+                    right: "-14px",
+                    width: "20px",
+                    height: "70px",
+                    background: "#a34d1b",
+                    borderRadius: "8px",
+                    zIndex: -1,
+                  }}
+                />
+              )}
               <div
-                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+                style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  padding: "28px 22px",
+                  textAlign: "left",
+                  boxShadow: "0 15px 40px rgba(0,0,0,0.1)",
+                  width: "260px",
+                }}
               >
                 <div
                   style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    background: "#a34d1b",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
-                    color: "white",
-                    fontWeight: "700",
-                    fontSize: "16px",
+                    justifyContent: "space-between",
+                    marginBottom: "16px",
                   }}
                 >
-                  {r.name[0]}
-                </div>
-                <div>
-                  <div
+                  <div style={{ display: "flex", gap: "2px" }}>
+                    {[...Array(5)].map((_, si) => (
+                      <Star key={si} size={13} fill="#f5b942" color="#f5b942" />
+                    ))}
+                  </div>
+                  <span
                     style={{
-                      fontWeight: "700",
-                      fontSize: "15px",
-                      color: "#1a1a1a",
+                      color: "#a34d1b",
+                      fontWeight: "800",
+                      fontSize: "13px",
                     }}
                   >
-                    {r.name}
+                    Spacklock
+                  </span>
+                </div>
+                <Quote size={22} color="#eee" fill="#eee" />
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "800",
+                    color: "#1a1a1a",
+                    margin: "8px 0 10px",
+                  }}
+                >
+                  {r.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "12.5px",
+                    color: "#777",
+                    lineHeight: "1.7",
+                    marginBottom: "20px",
+                    minHeight: "110px",
+                  }}
+                >
+                  {r.review}
+                </p>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <div
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      borderRadius: "50%",
+                      background: "#a34d1b",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "white",
+                      fontWeight: "700",
+                      fontSize: "13px",
+                    }}
+                  >
+                    {r.name[0]}
                   </div>
-                  <div style={{ fontSize: "12px", color: "#888" }}>
-                    {r.role}
+                  <div>
+                    <div
+                      style={{
+                        fontWeight: "700",
+                        fontSize: "13px",
+                        color: "#1a1a1a",
+                      }}
+                    >
+                      {r.name}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "8px",
+            marginTop: "60px",
+          }}
+        >
+          {[0, 1, 2, 3, 4, 5, 6].map((d) => (
+            <span
+              key={d}
+              style={{
+                width: d === 3 ? "14px" : "8px",
+                height: d === 3 ? "14px" : "8px",
+                borderRadius: "50%",
+                background: d === 3 ? "#a34d1b" : "#e5e5e5",
+                display: "inline-block",
+              }}
+            />
           ))}
         </div>
       </div>
