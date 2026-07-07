@@ -16,6 +16,7 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
+  PlayCircle,
 } from "lucide-react";
 
 function LandingPage() {
@@ -427,21 +428,71 @@ function LandingPage() {
       <div
         style={{
           padding: "80px 60px",
-          background: "#fdf7f4",
+          background: "white",
           textAlign: "center",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <p
+        {/* Squiggle decorations */}
+        <svg
+          width="220"
+          height="110"
+          viewBox="0 0 220 110"
+          fill="none"
+          style={{ position: "absolute", top: "20px", left: "20px" }}
+        >
+          <path
+            d="M0,90 Q40,20 90,60 T220,10"
+            stroke="#a34d1b"
+            strokeWidth="2"
+            opacity="0.8"
+          />
+          <path
+            d="M0,100 Q45,30 95,70 T220,20"
+            stroke="#c9835c"
+            strokeWidth="2"
+            opacity="0.7"
+          />
+          <path
+            d="M0,110 Q50,40 100,80 T220,30"
+            stroke="#e0b090"
+            strokeWidth="2"
+            opacity="0.6"
+          />
+        </svg>
+        <svg
+          width="220"
+          height="110"
+          viewBox="0 0 220 110"
+          fill="none"
           style={{
-            color: "#a34d1b",
-            fontWeight: "700",
-            letterSpacing: "2px",
-            fontSize: "13px",
-            marginBottom: "12px",
+            position: "absolute",
+            bottom: "20px",
+            right: "20px",
+            transform: "rotate(180deg)",
           }}
         >
-          ✦ Process
-        </p>
+          <path
+            d="M0,90 Q40,20 90,60 T220,10"
+            stroke="#a34d1b"
+            strokeWidth="2"
+            opacity="0.8"
+          />
+          <path
+            d="M0,100 Q45,30 95,70 T220,20"
+            stroke="#c9835c"
+            strokeWidth="2"
+            opacity="0.7"
+          />
+          <path
+            d="M0,110 Q50,40 100,80 T220,30"
+            stroke="#e0b090"
+            strokeWidth="2"
+            opacity="0.6"
+          />
+        </svg>
+
         <h2
           style={{
             fontSize: "38px",
@@ -450,54 +501,63 @@ function LandingPage() {
             marginBottom: "60px",
           }}
         >
-          How We <span style={{ color: "#a34d1b" }}>Make It Happen</span>
+          How We <span style={{ color: "#a34d1b" }}>Make It</span> Happen
         </h2>
         <div
           style={{
+            position: "relative",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "0px",
             maxWidth: "1000px",
             margin: "0 auto",
-            flexWrap: "wrap",
+            backgroundImage:
+              "linear-gradient(to right, #f0ece8 1px, transparent 1px), linear-gradient(to bottom, #f0ece8 1px, transparent 1px)",
+            backgroundSize: "70px 70px",
+            padding: "20px 0",
           }}
         >
           {[
             {
-              step: "01",
+              step: "1",
               title: "Sense",
-              desc: "Sensors detect heat, smoke & gas",
+              desc: "Embedded sensors continuously sample air for PM, CO, NOx and VOCs.",
             },
             {
-              step: "02",
+              step: "2",
+              title: "Calibrate",
+              desc: "Automatic calibration keeps sensor readings accurate over time.",
+            },
+            {
+              step: "3",
               title: "Analyze",
-              desc: "AI processes the data instantly",
+              desc: "Edge & cloud algorithms process data to detect harmful trends instantly.",
             },
             {
-              step: "03",
+              step: "4",
               title: "Alert",
-              desc: "You get notified immediately",
+              desc: "Push, SMS and audible alarms trigger the moment thresholds are breached.",
             },
             {
-              step: "04",
+              step: "5",
               title: "Act",
-              desc: "Fire brigade is contacted if needed",
+              desc: "Actionable reports and integrations help teams reduce emissions fast.",
             },
           ].map((s, i) => (
             <div key={s.step} style={{ display: "flex", alignItems: "center" }}>
-              <div style={{ textAlign: "center", padding: "0 20px" }}>
+              <div style={{ textAlign: "center", padding: "0 16px" }}>
                 <div
                   style={{
-                    width: "70px",
-                    height: "70px",
+                    width: "72px",
+                    height: "72px",
                     borderRadius: "50%",
-                    background: "#a34d1b",
-                    color: "white",
+                    background: "white",
+                    border: "3px solid #a34d1b",
+                    color: "#d9a878",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "20px",
+                    fontSize: "22px",
                     fontWeight: "800",
                     margin: "0 auto 16px",
                   }}
@@ -516,23 +576,28 @@ function LandingPage() {
                 </h3>
                 <p
                   style={{
-                    fontSize: "13px",
-                    color: "#666",
-                    maxWidth: "120px",
+                    fontSize: "12px",
+                    color: "#999",
+                    maxWidth: "110px",
                   }}
                 >
                   {s.desc}
                 </p>
               </div>
-              {i < 3 && (
-                <div
-                  style={{
-                    width: "60px",
-                    height: "2px",
-                    background: "#a34d1b",
-                    flexShrink: 0,
-                  }}
-                />
+              {i < 4 && (
+                <svg
+                  width="70"
+                  height="50"
+                  viewBox="0 0 70 50"
+                  style={{ flexShrink: 0 }}
+                >
+                  <path
+                    d="M0,10 Q35,50 70,10"
+                    stroke="#a34d1b"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                </svg>
               )}
             </div>
           ))}
@@ -542,7 +607,7 @@ function LandingPage() {
           style={{ marginTop: "50px" }}
           onClick={() => setPage("signup")}
         >
-          Order Now
+          Get Live Demo <PlayCircle size={18} />
         </button>
       </div>
 
