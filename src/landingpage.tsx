@@ -5,12 +5,6 @@ import Login from "./login";
 import AboutUs from "./aboutus";
 import Contact from "./Contact";
 import {
-  Flame,
-  Bot,
-  Bell,
-  Truck,
-  Zap,
-  Shield,
   ArrowRight,
   Download,
   Star,
