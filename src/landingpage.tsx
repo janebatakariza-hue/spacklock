@@ -163,22 +163,19 @@ function LandingPage() {
             display: "flex",
             gap: "40px",
             background: "white",
-            borderRadius: "24px 24px 6px 6px",
+            borderRadius: "20px",
             padding: "26px 48px",
             boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
             width: "min(90%, 700px)",
             justifyContent: "center",
           }}
         >
-          <div style={{ textAlign: "center",
-            borderRadius: "24px 24px 6px 6px",
-           }}>
+          <div style={{ textAlign: "center" }}>
             <div
               style={{
                 color: "#a34d1b",
                 fontSize: "26px",
                 fontWeight: "800",
-                
               }}
             >
               500+
@@ -776,29 +773,43 @@ function LandingPage() {
               key={r.name}
               style={{
                 position: "relative",
-                marginLeft: i === 0 ? "0" : "-24px",
+                marginLeft: i === 0 ? "0" : "-8px",
                 marginTop: r.marginTop,
                 zIndex: r.zIndex,
               }}
             >
-              {i < 2 && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "40%",
-                    right: "-14px",
-                    width: "20px",
-                    height: "70px",
-                    background: "#a34d1b",
-                    borderRadius: "8px",
-                    zIndex: -1,
-                  }}
-                />
+              {i === 1 && (
+                <>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "40%",
+                      left: "-14px",
+                      width: "20px",
+                      height: "70px",
+                      background: "#a34d1b",
+                      borderRadius: "8px",
+                      zIndex: -1,
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "40%",
+                      right: "-14px",
+                      width: "20px",
+                      height: "70px",
+                      background: "#a34d1b",
+                      borderRadius: "8px",
+                      zIndex: -1,
+                    }}
+                  />
+                </>
               )}
               <div
                 style={{
                   background: "white",
-                  borderRadius: "20px",
+                  borderRadius: "24px 24px 6px 6px",
                   padding: "28px 22px",
                   textAlign: "left",
                   boxShadow: "0 15px 40px rgba(0,0,0,0.1)",
