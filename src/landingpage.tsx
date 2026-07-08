@@ -18,6 +18,13 @@ import {
   ChevronRight,
   PlayCircle,
   Quote,
+  Compass,
+  Plus,
+  Minus,
+  X,
+  MapPin,
+  Phone,
+  Mail,
 } from "lucide-react";
 
 function LandingPage() {
@@ -25,6 +32,7 @@ function LandingPage() {
     "home" | "signup" | "login" | "about" | "Contact"
   >("home");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [faqQuestion, setFaqQuestion] = useState("");
   const [activeFeature, setActiveFeature] = useState(0);
   const featureItems = [
     {
@@ -921,18 +929,25 @@ function LandingPage() {
 
       {/* ── FAQ ── */}
       <div style={{ padding: "80px 60px", background: "white" }}>
-        <p
-          style={{
-            color: "#a34d1b",
-            fontWeight: "700",
-            letterSpacing: "2px",
-            fontSize: "13px",
-            marginBottom: "12px",
-            textAlign: "center",
-          }}
-        >
-          ✦ FAQs
-        </p>
+        <div style={{ textAlign: "center", marginBottom: "16px" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              border: "1px solid #f0d9c8",
+              borderRadius: "40px",
+              padding: "10px 24px",
+            }}
+          >
+            <Compass size={16} color="#a34d1b" />
+            <span
+              style={{ color: "#a34d1b", fontWeight: "700", fontSize: "15px" }}
+            >
+              FAQ's
+            </span>
+          </div>
+        </div>
         <h2
           style={{
             fontSize: "38px",
@@ -944,69 +959,214 @@ function LandingPage() {
         >
           Frequently <span style={{ color: "#a34d1b" }}>Asked</span> Questions
         </h2>
-        <div style={{ maxWidth: "750px", margin: "0 auto" }}>
-          {[
-            {
-              q: "How does Spacklock detect fire?",
-              a: "Spacklock uses a combination of heat, smoke, and gas sensors combined with AI analysis to detect early signs of fire before it spreads.",
-            },
-            {
-              q: "How quickly does it send alerts?",
-              a: "Alerts are sent within 3 seconds of detection directly to your phone, so you can act immediately no matter where you are.",
-            },
-            {
-              q: "Does it automatically contact the fire brigade?",
-              a: "Yes. If a fire is confirmed, Spacklock can automatically notify your nearest fire brigade so help is on the way without delay.",
-            },
-            {
-              q: "Is it easy to install?",
-              a: "Absolutely. Our team handles the full installation and setup, usually completed within a few hours with minimal disruption.",
-            },
-            {
-              q: "Any question?",
-              a: "Feel free to reach us at sparklock@email.com or call +250 788 000 000 and our team will be happy to help.",
-            },
-          ].map((faq, i) => (
-            <div
-              key={i}
-              style={{ borderBottom: "1px solid #eee", padding: "20px 0" }}
-            >
-              <button
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 380px",
+            gap: "60px",
+            maxWidth: "1100px",
+            margin: "0 auto",
+            position: "relative",
+          }}
+        >
+          {/* Left: accordion list */}
+          <div>
+            {[
+              {
+                q: "How does Spacklock detect fire?",
+                a: "Spacklock uses a combination of heat, smoke, and gas sensors combined with AI analysis to detect early signs of fire before it spreads.",
+              },
+              {
+                q: "How quickly does it send alerts?",
+                a: "Alerts are sent within 3 seconds of detection directly to your phone, so you can act immediately no matter where you are.",
+              },
+              {
+                q: "Does it automatically contact the fire brigade?",
+                a: "Yes. If a fire is confirmed, Spacklock can automatically notify your nearest fire brigade so help is on the way without delay.",
+              },
+              {
+                q: "Is it easy to install?",
+                a: "Absolutely. Our team handles the full installation and setup, usually completed within a few hours with minimal disruption.",
+              },
+              {
+                q: "Any question?",
+                a: "Feel free to reach us at sparklock@email.com or call +250 788 000 000 and our team will be happy to help.",
+              },
+            ].map((faq, i) => (
+              <div
+                key={i}
                 style={{
-                  width: "100%",
-                  background: "none",
-                  border: "none",
-                  textAlign: "left",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  color: "#1a1a1a",
-                  fontFamily: "jost, sans-serif",
+                  background: "white",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+                  padding: "18px 20px",
+                  marginBottom: "14px",
                 }}
               >
-                {faq.q}
-                <span style={{ fontSize: "22px", color: "#a34d1b" }}>
-                  {openFaq === i ? "−" : "+"}
-                </span>
-              </button>
-              {openFaq === i && (
-                <p
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
-                    marginTop: "14px",
+                    width: "100%",
+                    background: "none",
+                    border: "none",
+                    textAlign: "left",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    cursor: "pointer",
                     fontSize: "14px",
-                    color: "#666",
-                    lineHeight: "1.8",
+                    fontWeight: "600",
+                    color: "#1a1a1a",
+                    fontFamily: "jost, sans-serif",
+                    gap: "12px",
                   }}
                 >
-                  {faq.a}
-                </p>
-              )}
+                  <span
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <span style={{ color: "#bbb", fontSize: "14px" }}>+</span>
+                    {faq.q}
+                  </span>
+                  <span
+                    style={{
+                      width: "26px",
+                      height: "26px",
+                      borderRadius: "50%",
+                      background: "#1a1a1a",
+                      color: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {openFaq === i ? <Minus size={13} /> : <Plus size={13} />}
+                  </span>
+                </button>
+                {openFaq === i && (
+                  <p
+                    style={{
+                      marginTop: "14px",
+                      fontSize: "13px",
+                      color: "#666",
+                      lineHeight: "1.8",
+                    }}
+                  >
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Right: Any Question panel */}
+          <div style={{ textAlign: "center", position: "relative" }}>
+            <div
+              style={{
+                width: "140px",
+                height: "140px",
+                margin: "10px auto 24px",
+                background: "#a34d1b",
+                borderRadius: "42% 58% 65% 35% / 45% 45% 55% 55%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span
+                style={{ color: "white", fontSize: "48px", fontWeight: "800" }}
+              >
+                ?
+              </span>
             </div>
-          ))}
+            <h3
+              style={{
+                fontSize: "22px",
+                fontWeight: "800",
+                color: "#1a1a1a",
+                marginBottom: "8px",
+              }}
+            >
+              Any Question?
+            </h3>
+            <p
+              style={{ fontSize: "13px", color: "#888", marginBottom: "20px" }}
+            >
+              You can ask anything you want to know Feedback
+            </p>
+            <div style={{ textAlign: "left" }}>
+              <label style={{ fontSize: "12px", color: "#555" }}>
+                Let me know
+              </label>
+              <div style={{ position: "relative", marginTop: "6px" }}>
+                <input
+                  type="text"
+                  value={faqQuestion}
+                  onChange={(e) => setFaqQuestion(e.target.value)}
+                  placeholder="Enter Here"
+                  style={{
+                    width: "100%",
+                    padding: "12px 36px 12px 14px",
+                    borderRadius: "8px",
+                    border: "1px solid #ddd",
+                    fontSize: "13px",
+                    boxSizing: "border-box",
+                  }}
+                />
+                <X
+                  size={14}
+                  color="#999"
+                  style={{
+                    position: "absolute",
+                    right: "12px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setFaqQuestion("")}
+                />
+              </div>
+            </div>
+
+            {/* Decorative dots */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-70px",
+                right: "-30px",
+                width: "36px",
+                height: "36px",
+                borderRadius: "50%",
+                background: "#a34d1b",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-40px",
+                right: "40px",
+                width: "20px",
+                height: "20px",
+                borderRadius: "50%",
+                background: "#a34d1b",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-90px",
+                right: "80px",
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                background: "#a34d1b",
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -1212,7 +1372,11 @@ function LandingPage() {
                   alignItems: "flex-start",
                 }}
               >
-                <span>📍</span>
+                <MapPin
+                  size={16}
+                  color="#f0d9c8"
+                  style={{ flexShrink: 0, marginTop: "2px" }}
+                />
                 <a
                   href="https://maps.google.com"
                   target="_blank"
@@ -1234,7 +1398,7 @@ function LandingPage() {
                   alignItems: "center",
                 }}
               >
-                <span>📞</span>
+                <Phone size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
                 <a
                   href="tel:+250788000000"
                   style={{
@@ -1249,7 +1413,7 @@ function LandingPage() {
               <li
                 style={{ display: "flex", gap: "10px", alignItems: "center" }}
               >
-                <span>✉️</span>
+                <Mail size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
                 <a
                   href="mailto:sparklock@email.com"
                   style={{
