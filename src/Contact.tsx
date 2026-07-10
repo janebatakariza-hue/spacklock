@@ -1,6 +1,6 @@
 import React from "react";
 import "./spack.css";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 function Contact({
   onBack,
@@ -76,7 +76,7 @@ function Contact({
       {/* CONTACT US HEADING */}
       <div id="contact-section" style={styles.contactHeadingWrapper}>
         <div style={styles.contactHeadingPill}>
-          <span style={styles.contactHeadingIcon}>💬</span>
+          <MessageCircle size={16} color="#8B3A0F" />
           <span style={styles.contactHeadingText}>Contact Us</span>
         </div>
       </div>
@@ -90,15 +90,15 @@ function Contact({
 
           <div style={styles.infoItems}>
             <div style={styles.infoItem}>
-              <span style={styles.infoIcon}>📞</span>
+              <Phone size={18} style={{ flexShrink: 0 }} />
               <span>+250 345 678 345</span>
             </div>
             <div style={styles.infoItem}>
-              <span style={styles.infoIcon}>✉️</span>
+              <Mail size={18} style={{ flexShrink: 0 }} />
               <span>dariusniyonkuru@gmail.com</span>
             </div>
             <div style={styles.infoItem}>
-              <span style={styles.infoIcon}>📍</span>
+              <MapPin size={18} style={{ flexShrink: 0 }} />
               <span>Rwanda ,Nyabihu-Mukamira</span>
             </div>
           </div>
@@ -142,19 +142,19 @@ function Contact({
               </svg>
             </a>
             <a
-              href="https://facebook.com"
+              href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
               style={styles.socialIcon}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
+                width="16"
+                height="16"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
           </div>
@@ -173,7 +173,7 @@ function Contact({
               />
             </div>
             <div style={styles.formField}>
-              <label style={styles.label}>Last Name</label>
+              <label style={styles.labelAccent}>Last Name</label>
               <input style={styles.input} type="text" placeholder="Last name" />
             </div>
           </div>
@@ -189,7 +189,7 @@ function Contact({
               />
             </div>
             <div style={styles.formField}>
-              <label style={styles.label}>Phone Number</label>
+              <label style={styles.labelAccent}>Phone Number</label>
               <input
                 style={styles.input}
                 type="tel"
@@ -429,7 +429,7 @@ function Contact({
               <li
                 style={{ display: "flex", gap: "10px", marginBottom: "16px" }}
               >
-                <MapPin size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
+                <span>📍</span>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
@@ -446,7 +446,7 @@ function Contact({
               <li
                 style={{ display: "flex", gap: "10px", marginBottom: "16px" }}
               >
-                <Phone size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
+                <span>📞</span>
                 <a
                   href="tel:+250780567769"
                   style={{
@@ -459,7 +459,7 @@ function Contact({
                 </a>
               </li>
               <li style={{ display: "flex", gap: "10px" }}>
-                <Mail size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
+                <span>✉️</span>
                 <a
                   href="mailto:sparklock@email.com"
                   style={{
@@ -524,9 +524,7 @@ const styles: Record<string, React.CSSProperties> = {
     color: "#8B3A0F",
     fontWeight: "600",
   },
-  contactHeadingIcon: {
-    fontSize: "18px",
-  },
+
   contactHeadingText: {
     fontFamily: "Arial, sans-serif",
   },
@@ -538,6 +536,7 @@ const styles: Record<string, React.CSSProperties> = {
     padding: "0 40px 60px",
     alignItems: "flex-start",
   },
+
   infoCard: {
     background: "#8B3A0F",
     borderRadius: "16px",
@@ -546,7 +545,7 @@ const styles: Record<string, React.CSSProperties> = {
     width: "300px",
     flexShrink: 0,
     position: "relative",
-    overflow: "hidden",
+    overflow: "visible",
     minHeight: "420px",
     display: "flex",
     flexDirection: "column",
@@ -582,92 +581,32 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "14px",
     fontFamily: "Arial, sans-serif",
   },
-  infoIcon: {
-    fontSize: "18px",
-    flexShrink: 0,
-  },
+
+  // AFTER
+
+  // AFTER
   decorCircle1: {
     position: "absolute",
-    width: "180px",
-    height: "180px",
+    width: "85px",
+    height: "85px",
     borderRadius: "50%",
-    background: "rgba(255,255,255,0.08)",
-    bottom: "60px",
-    right: "-40px",
+    background: "#7a3811",
+    bottom: "150px",
+    left: "215px",
     zIndex: 0,
   },
   decorCircle2: {
     position: "absolute",
-    width: "120px",
-    height: "120px",
-    borderRadius: "50%",
-    background: "rgba(255,255,255,0.12)",
-    bottom: "-20px",
-    right: "20px",
+    width: "170px",
+    height: "200px",
+    borderTopLeftRadius: "999px",
+    borderBottomLeftRadius: "999px",
+    borderTopRightRadius: "0px",
+    borderBottomRightRadius: "0px",
+    background: "#4e230d",
+    bottom: "-60px",
+    left: "195px",
     zIndex: 0,
-  },
-  socialRow: {
-    display: "flex",
-    gap: "14px",
-    marginTop: "40px",
-    position: "relative",
-    zIndex: 1,
-  },
-  socialIcon: {
-    background: "rgba(255,255,255,0.15)",
-    borderRadius: "50%",
-    width: "36px",
-    height: "36px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "white",
-    textDecoration: "none",
-  },
-  form: {
-    flex: 1,
-    padding: "10px 0",
-  },
-  formRow: {
-    display: "flex",
-    gap: "24px",
-    marginBottom: "24px",
-  },
-  formField: {
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-  },
-  label: {
-    fontSize: "13px",
-    color: "#555",
-    marginBottom: "8px",
-    fontFamily: "Arial, sans-serif",
-    fontWeight: "600",
-  },
-  input: {
-    border: "none",
-    borderBottom: "1.5px solid #ccc",
-    outline: "none",
-    padding: "8px 0",
-    fontSize: "14px",
-    fontFamily: "Arial, sans-serif",
-    background: "transparent",
-    color: "#333",
-  },
-  radioRow: {
-    display: "flex",
-    gap: "20px",
-    flexWrap: "wrap",
-    marginTop: "10px",
-  },
-  radioLabel: {
-    display: "flex",
-    alignItems: "center",
-    fontSize: "13px",
-    color: "#555",
-    fontFamily: "Arial, sans-serif",
-    cursor: "pointer",
   },
   textarea: {
     border: "none",
