@@ -1,6 +1,7 @@
 import "./spack.css";
 import phone from "./phone.png";
 import designForm from "./Design.png";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 function AboutUs({
   onBack,
@@ -79,7 +80,7 @@ function AboutUs({
       <div className="ourmission">
         <div className="missiontext">
           <h1>
-            <span className="our">OUR</span>{" "}
+            <span className="our">OUR</span> 
             <span className="mission">MISSION</span>
           </h1>
           <p>
@@ -303,7 +304,12 @@ function AboutUs({
                   alignItems: "flex-start",
                 }}
               >
-                <span>📍</span>
+                <MapPin
+                  size={16}
+                  color="#f0d9c8"
+                  style={{ flexShrink: 0, marginTop: "2px" }}
+                />
+
                 <a
                   href="https://maps.google.com"
                   target="_blank"
@@ -325,7 +331,8 @@ function AboutUs({
                   alignItems: "center",
                 }}
               >
-                <span>📞</span>
+                <Phone size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
+
                 <a
                   href="tel:+250788000000"
                   style={{
@@ -340,7 +347,7 @@ function AboutUs({
               <li
                 style={{ display: "flex", gap: "10px", alignItems: "center" }}
               >
-                <span>✉️</span>
+                <Mail size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
                 <a
                   href="mailto:sparklock@email.com"
                   style={{

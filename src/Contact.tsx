@@ -1,5 +1,6 @@
 import React from "react";
 import "./spack.css";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 function Contact({
   onBack,
@@ -428,7 +429,7 @@ function Contact({
               <li
                 style={{ display: "flex", gap: "10px", marginBottom: "16px" }}
               >
-                <span>📍</span>
+                <MapPin size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
                 <a
                   href="https://maps.google.com"
                   target="_blank"
@@ -445,7 +446,7 @@ function Contact({
               <li
                 style={{ display: "flex", gap: "10px", marginBottom: "16px" }}
               >
-                <span>📞</span>
+                <Phone size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
                 <a
                   href="tel:+250780567769"
                   style={{
@@ -458,7 +459,7 @@ function Contact({
                 </a>
               </li>
               <li style={{ display: "flex", gap: "10px" }}>
-                <span>✉️</span>
+                <Mail size={16} color="#f0d9c8" style={{ flexShrink: 0 }} />
                 <a
                   href="mailto:sparklock@email.com"
                   style={{

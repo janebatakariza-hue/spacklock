@@ -291,14 +291,15 @@ header {
 }
 .touch {
   align-items: center;
-  background: #a34d1b;
+  background: linear-gradient(90deg, #a34d1b 0%, #3d1d0a 100%);
   color: white;
   justify-content: center;
   text-align: center;
-  border-radius: 20px;
-  border: none;
+  border-radius: 15px;
+  border: #a34d1b;
   transition: transform 0.3s ease;
   padding: 20px;
+  width: 200px;
 }
 .touch:hover {
   transform: scale(1.1);
